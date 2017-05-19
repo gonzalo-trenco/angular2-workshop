@@ -6,4 +6,11 @@ export class ParticleService {
     getParticles() {
         return Promise.resolve(PARTICLES);
     }
+    getParticle(id) {
+        return this.getParticles().then(
+            particles => particles.filter(
+                particle => particle.id === id
+            )[0]
+        )
+    }
 }

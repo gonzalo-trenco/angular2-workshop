@@ -3,4 +3,7 @@
         <span class="code">{{particle.id}}</span> {{particle.name}}
     </li>
 </ul>
-<particle-detail [particle]="selectedParticle"></particle-detail>
+<div *ngIf="selectedParticle">
+    <p>Selected particle: {{selectedParticle.type}} {{selectedParticle.name}}</p>
+    <button (click)="gotoDetail()">Ir al detalle</button>
+</div>

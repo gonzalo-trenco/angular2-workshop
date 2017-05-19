@@ -1,18 +1,43 @@
 import { Component } from '@angular/core';
-import { ParticleService } from './particle.service';
+import { ParticleService } from './particles/particle.service';
 import { ParticlesComponent } from './particles/particles.component';
+import { ParticleDetailComponent } from './particles/particle-detail/particle-detail.component';
+import { FamiliesComponent } from './families/families.component';
+import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
 
 @Component({
   selector: 'my-app',
   template: `
     <h1>{{title}}</h1>
-    <particles></particles>
-  `,
-  directives: [ParticlesComponent],
+    <div>
+      <a [routerLink]="['Particles']">Particles</a>
+      <a [routerLink]="['Families']">Families</a>
+    </div>
+    <router-outlet></router-outlet>`,
+  directives: [ROUTER_DIRECTIVES],
   providers: [
-    ParticleService
+    ParticleService,
+    ROUTER_PROVIDERS
   ]
 })
+@RouteConfig([
+  {
+    path: '/particles',
+    name: 'Particles',
+    component: ParticlesComponent,
+    useAsDefault: true
+  },
+  {
+    path: '/families',
+    name: 'Families',
+    component: FamiliesComponent
+  },
+  {
+    path: '/particle-detail/:id',
+    name: 'ParticleDetail',
+    component: ParticleDetailComponent
+  }
+])
 export class AppComponent {
-  titulo = 'Standard Model';
+  title = 'Standard Model';
 }

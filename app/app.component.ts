@@ -5,7 +5,9 @@ import { Component } from '@angular/core';
     template: `
     <h1> My app: {{titulo}}</h1>
     <ul class="particles">
-        <li *ngFor="let particle of particles" (click)="selectParticle(particle)">
+        <li *ngFor="let particle of particles" 
+        (click)="selectParticle(particle)"
+        [class.selected]="particle === selectedParticle">
             <span class="code">{{particle.id}}</span>
             {{particle.name}}
         </li>

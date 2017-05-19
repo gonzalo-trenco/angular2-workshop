@@ -1,0 +1,1 @@
+{"version":3,"file":"particle-detail.component.js","sourceRoot":"","sources":["../app/particle-detail.component.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;YAQA;gBACI;gBAAgB,CAAC;gBAEjB,gCAAQ,GAAR,cAAa,CAAC;gBATlB;oBAAC,gBAAS,CAAC;wBACP,QAAQ,EAAE,MAAM,CAAC,EAAE;wBACnB,QAAQ,EAAE,iBAAiB;wBAC3B,WAAW,EAAE,qBAAqB;qBACrC,CAAC;;iCAAA;gBAMF,oBAAC;YAAD,CAAC,AAJD,IAIC;YAJD,yCAIC,CAAA"}

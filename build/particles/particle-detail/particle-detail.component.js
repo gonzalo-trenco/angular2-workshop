@@ -10,6 +10,9 @@ System.register(['@angular/core', '../particle.service', '@angular/router-deprec
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
+    var __param = (this && this.__param) || function (paramIndex, decorator) {
+        return function (target, key) { decorator(target, key, paramIndex); }
+    };
     var core_1, particle_service_1, router_deprecated_1;
     var ParticleDetailComponent;
     return {
@@ -25,7 +28,8 @@ System.register(['@angular/core', '../particle.service', '@angular/router-deprec
             }],
         execute: function() {
             ParticleDetailComponent = (function () {
-                function ParticleDetailComponent(_ParticleService, _routeParams) {
+                function ParticleDetailComponent(_window, _ParticleService, _routeParams) {
+                    this._window = _window;
                     this._ParticleService = _ParticleService;
                     this._routeParams = _routeParams;
                 }
@@ -35,12 +39,16 @@ System.register(['@angular/core', '../particle.service', '@angular/router-deprec
                     this._ParticleService.getParticle(id)
                         .then(function (particle) { return _this.particle = particle; });
                 };
+                ParticleDetailComponent.prototype.goBack = function () {
+                    this._window.history.back();
+                };
                 ParticleDetailComponent = __decorate([
                     core_1.Component({
                         selector: 'particle-detail',
                         templateUrl: 'app/particles/particle-detail/particle-detail.html'
-                    }), 
-                    __metadata('design:paramtypes', [particle_service_1.ParticleService, router_deprecated_1.RouteParams])
+                    }),
+                    __param(0, core_1.Inject(window)), 
+                    __metadata('design:paramtypes', [Object, particle_service_1.ParticleService, router_deprecated_1.RouteParams])
                 ], ParticleDetailComponent);
                 return ParticleDetailComponent;
             }());

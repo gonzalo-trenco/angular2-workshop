@@ -1,4 +1,4 @@
-System.register(['@angular/core', './mock-particles'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/http', 'rxjs/add/operator/toPromise'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,29 +10,39 @@ System.register(['@angular/core', './mock-particles'], function(exports_1, conte
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, mock_particles_1;
+    var core_1, http_1;
     var ParticleService;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (mock_particles_1_1) {
-                mock_particles_1 = mock_particles_1_1;
-            }],
+            function (http_1_1) {
+                http_1 = http_1_1;
+            },
+            function (_1) {}],
         execute: function() {
             ParticleService = (function () {
-                function ParticleService() {
+                function ParticleService(http) {
+                    this.http = http;
+                    this.particlesUrl = 'app/mock/particles.json';
                 }
+                ParticleService.prototype.handleError = function (err) {
+                    console.error('An error occurred:', err);
+                    return Promise.reject(err.message || err);
+                };
                 ParticleService.prototype.getParticles = function () {
-                    return Promise.resolve(mock_particles_1.PARTICLES);
+                    return this.http.get(this.particlesUrl)
+                        .toPromise()
+                        .then(function (response) { return response.json(); })
+                        .catch(this.handleError);
                 };
                 ParticleService.prototype.getParticle = function (id) {
                     return this.getParticles().then(function (particles) { return particles.filter(function (particle) { return particle.id === id; })[0]; });
                 };
                 ParticleService = __decorate([
                     core_1.Injectable(), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [http_1.Http])
                 ], ParticleService);
                 return ParticleService;
             }());

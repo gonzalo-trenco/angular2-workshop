@@ -1,31 +1,18 @@
-import { OnInit, Component } from '@angular/core';
-import { Particle } from './particle';
-import { ParticleDetailComponent } from './particle-detail/particle-detail.component'
+import { Component } from '@angular/core';
 import { ParticleService } from './particle.service';
+import { ParticlesComponent } from './particles/particles.component';
 
 @Component({
-    selector: 'my-app',
-    templateUrl: 'app/app.component.html',
-    styleUrls: ['app/app.component.css'],
-    directives: [ParticleDetailComponent],
-    providers: [ParticleService]
+  selector: 'my-app',
+  template: `
+    <h1>{{title}}</h1>
+    <particles></particles>
+  `,
+  directives: [ParticlesComponent],
+  providers: [
+    ParticleService
+  ]
 })
-export class AppComponent implements OnInit {
-
-    constructor(private _particleService: ParticleService) {}
-
-    titulo: string = 'Standard model';
-    particles: Array<object>;
-    selectedParticle: Particle;
-    
-    private selectParticle(particle: Particle) {
-        this.selectedParticle = particle;
-    }
-
-    ngOnInit() {
-        this._particleService
-            .getParticles()
-            .then(particles => this.particles = particles);
-    }
-
+export class AppComponent {
+  titulo = 'Standard Model';
 }

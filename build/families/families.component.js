@@ -1,4 +1,4 @@
-System.register(['@angular/core', '../particle'], function(exports_1, context_1) {
+System.register(['@angular/core'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,36 +10,28 @@ System.register(['@angular/core', '../particle'], function(exports_1, context_1)
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, particle_1;
-    var ParticleDetailComponent;
+    var core_1;
+    var FamiliesComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (particle_1_1) {
-                particle_1 = particle_1_1;
             }],
         execute: function() {
-            ParticleDetailComponent = (function () {
-                function ParticleDetailComponent() {
+            FamiliesComponent = (function () {
+                function FamiliesComponent() {
                 }
-                __decorate([
-                    core_1.Input(), 
-                    __metadata('design:type', (typeof (_a = typeof particle_1.Particle !== 'undefined' && particle_1.Particle) === 'function' && _a) || Object)
-                ], ParticleDetailComponent.prototype, "particle", void 0);
-                ParticleDetailComponent = __decorate([
+                FamiliesComponent = __decorate([
                     core_1.Component({
-                        selector: 'particle-detail',
-                        templateUrl: 'app/particle-detail/particle-detail.html'
+                        selector: 'families',
+                        template: "\n    <h2> Families Component </h2>\n    "
                     }), 
                     __metadata('design:paramtypes', [])
-                ], ParticleDetailComponent);
-                return ParticleDetailComponent;
-                var _a;
+                ], FamiliesComponent);
+                return FamiliesComponent;
             }());
-            exports_1("ParticleDetailComponent", ParticleDetailComponent);
+            exports_1("FamiliesComponent", FamiliesComponent);
         }
     }
 });
-//# sourceMappingURL=particle-detail.component.js.map
+//# sourceMappingURL=families.component.js.map

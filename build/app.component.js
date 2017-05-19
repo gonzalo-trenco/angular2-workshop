@@ -1,4 +1,4 @@
-System.register(['@angular/core', './particle.service', './particles/particles.component'], function(exports_1, context_1) {
+System.register(['@angular/core', './particles/particle.service', './particles/particles.component', './particles/particle-detail/particle-detail.component', './families/families.component', '@angular/router-deprecated'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', './particle.service', './particles/particles.c
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, particle_service_1, particles_component_1;
+    var core_1, particle_service_1, particles_component_1, particle_detail_component_1, families_component_1, router_deprecated_1;
     var AppComponent;
     return {
         setters:[
@@ -22,21 +22,49 @@ System.register(['@angular/core', './particle.service', './particles/particles.c
             },
             function (particles_component_1_1) {
                 particles_component_1 = particles_component_1_1;
+            },
+            function (particle_detail_component_1_1) {
+                particle_detail_component_1 = particle_detail_component_1_1;
+            },
+            function (families_component_1_1) {
+                families_component_1 = families_component_1_1;
+            },
+            function (router_deprecated_1_1) {
+                router_deprecated_1 = router_deprecated_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
                 function AppComponent() {
-                    this.titulo = 'Standard Model';
+                    this.title = 'Standard Model';
                 }
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n    <h1>{{title}}</h1>\n    <particles></particles>\n  ",
-                        directives: [particles_component_1.ParticlesComponent],
+                        template: "\n    <h1>{{title}}</h1>\n    <div>\n      <a [routerLink]=\"['Particles']\">Particles</a>\n      <a [routerLink]=\"['Families']\">Families</a>\n    </div>\n    <router-outlet></router-outlet>",
+                        directives: [router_deprecated_1.ROUTER_DIRECTIVES],
                         providers: [
-                            particle_service_1.ParticleService
+                            particle_service_1.ParticleService,
+                            router_deprecated_1.ROUTER_PROVIDERS
                         ]
-                    }), 
+                    }),
+                    router_deprecated_1.RouteConfig([
+                        {
+                            path: '/particles',
+                            name: 'Particles',
+                            component: particles_component_1.ParticlesComponent,
+                            useAsDefault: true
+                        },
+                        {
+                            path: '/families',
+                            name: 'Families',
+                            component: families_component_1.FamiliesComponent
+                        },
+                        {
+                            path: '/particle-detail/:id',
+                            name: 'ParticleDetail',
+                            component: particle_detail_component_1.ParticleDetailComponent
+                        }
+                    ]), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
                 return AppComponent;

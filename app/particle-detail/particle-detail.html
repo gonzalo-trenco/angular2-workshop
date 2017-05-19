@@ -1,0 +1,12 @@
+<div *ngIf="particle">
+    <h2>Details for {{particle.type}} {{particle.name}}.</h2>
+    <p>Mass: {{particle.mass}}</p>
+    <p>Charge: {{particle.charge}}</p>
+    <p>Spin: {{particle.spin}}</p>
+    <p>Type: {{particle.type}}</p>
+    <p>Forces: {{particle.forces.join(', ')}}</p>
+    <div>
+        <label>Ajusta la masa: </label>
+        <input [(ngModel)]="particle.mass" placeholder="masa">
+    </div>
+</div>`

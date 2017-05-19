@@ -4,7 +4,7 @@
 
 # Covering:
 
-  - Basic Component Seupt
+  - Basic Component Setup
   - Advance Component Fragmentation
   - Basic Routing Examples
   - Ajax Requests

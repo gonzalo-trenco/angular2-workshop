@@ -40,7 +40,7 @@ System.register(['@angular/core', './particles/particle.service', './particles/p
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n    <h1>{{title}}</h1>\n    <div>\n      <a [routerLink]=\"['Particles']\">Particles</a>\n      <a [routerLink]=\"['Families']\">Families</a>\n    </div>\n    <router-outlet></router-outlet>",
+                        templateUrl: 'app/app.component.html',
                         directives: [router_deprecated_1.ROUTER_DIRECTIVES],
                         providers: [
                             particle_service_1.ParticleService,

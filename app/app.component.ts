@@ -7,13 +7,7 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/route
 
 @Component({
   selector: 'my-app',
-  template: `
-    <h1>{{title}}</h1>
-    <div>
-      <a [routerLink]="['Particles']">Particles</a>
-      <a [routerLink]="['Families']">Families</a>
-    </div>
-    <router-outlet></router-outlet>`,
+  templateUrl: 'app/app.component.html',
   directives: [ROUTER_DIRECTIVES],
   providers: [
     ParticleService,
